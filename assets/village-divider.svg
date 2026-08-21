@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+  <g fill="#4A2E1C" opacity="0.85">
+    <path d="M0 70h40v-18l12-10 12 10v18h30v-22l18-14 18 14v22h25l-8-20h12l-6-14h10l-6-12h8v46h40v-28l20-16 20 16v28h35v-20c0-12 10-20 22-20s22 8 22 20v20h28v-32l24-18 24 18v32h40v-24l16-12 16 12v24h50v-36l28-22 28 22v36h45v-18l14-10 14 10v18h60v-26l22-16 22 16v26h40v-20l18-14 18 14v20h55v-30l26-20 26 20v30h70v-22l20-14 20 14v22h80v-28l24-18 24 18v28h100v10H0z"/>
+    <circle cx="95" cy="38" r="3"/>
+    <circle cx="310" cy="42" r="2.5"/>
+    <circle cx="620" cy="36" r="3"/>
+    <circle cx="900" cy="40" r="2.5"/>
+  </g>
+</svg>

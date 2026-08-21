@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Real Chakki Fresh Atta">
+  <defs>
+    <radialGradient id="orb" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FF9A3C"/>
+      <stop offset="55%" stop-color="#F26B1A"/>
+      <stop offset="100%" stop-color="#D4550A"/>
+    </radialGradient>
+  </defs>
+  <circle cx="120" cy="120" r="108" fill="url(#orb)"/>
+  <circle cx="120" cy="120" r="100" fill="none" stroke="#F5C84B" stroke-width="3" opacity="0.85"/>
+  <!-- wheat left -->
+  <g fill="#E8B84A" transform="translate(18,70)">
+    <ellipse cx="12" cy="20" rx="7" ry="14" transform="rotate(-25 12 20)"/>
+    <ellipse cx="22" cy="35" rx="6" ry="12" transform="rotate(-10 22 35)"/>
+    <ellipse cx="28" cy="52" rx="5" ry="11"/>
+    <path d="M28 55 v55" stroke="#C9922E" stroke-width="2" fill="none"/>
+  </g>
+  <!-- wheat right -->
+  <g fill="#E8B84A" transform="translate(178,70)">
+    <ellipse cx="28" cy="20" rx="7" ry="14" transform="rotate(25 28 20)"/>
+    <ellipse cx="18" cy="35" rx="6" ry="12" transform="rotate(10 18 35)"/>
+    <ellipse cx="12" cy="52" rx="5" ry="11"/>
+    <path d="M12 55 v55" stroke="#C9922E" stroke-width="2" fill="none"/>
+  </g>
+  <text x="120" y="118" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="62" fill="#fff" stroke="#C62828" stroke-width="1.2" paint-order="stroke">Real</text>
+  <text x="120" y="152" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#fff" letter-spacing="1.2">CHAKKI FRESH ATTA</text>
+</svg>
