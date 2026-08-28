@@ -326,7 +326,7 @@ p {
 .hero-inner {
   position: relative;
   z-index: 2;
-  padding: 4rem 0 5rem;
+  padding: 5.5rem 0 5rem;
   max-width: 560px;
 }
 
@@ -916,6 +916,77 @@ p {
   margin: 0 0 2.5rem;
 }
 
+.about-profile {
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+}
+
+.about-profile h2 {
+  font-family: var(--font-title);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  margin: 2rem 0 0.75rem;
+  color: var(--brown);
+}
+
+.about-profile h2:first-child {
+  margin-top: 0;
+}
+
+.about-profile p {
+  color: var(--brown-mid);
+  font-size: 1.02rem;
+  margin-bottom: 0.85rem;
+}
+
+.about-profile ul {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  color: var(--brown-mid);
+}
+
+.about-profile li {
+  margin-bottom: 0.4rem;
+}
+
+.cert-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  padding: 1.15rem 1.25rem;
+  background: var(--paper);
+  border: 1px solid rgba(42, 28, 18, 0.08);
+  border-radius: 8px;
+}
+
+.cert-badges img {
+  height: 56px;
+  width: auto;
+  display: block;
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.25rem;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.cert-badges p {
+  margin: 0;
+  flex: 1 1 12rem;
+  font-weight: 600;
+  color: var(--brown);
+  font-size: 0.95rem;
+}
+
+.about-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1109,9 +1180,29 @@ p {
 }
 
 .footer-certs {
-  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+  margin-top: 1rem;
+}
+
+.footer-certs img {
+  width: auto;
+  height: 44px;
+  display: block;
+  background: #fff;
+  border-radius: 6px;
+  padding: 0.2rem;
+  filter: none;
+}
+
+.footer-certs p {
+  margin: 0;
+  flex: 1 1 100%;
   font-size: 0.8rem;
-  color: rgba(255, 253, 248, 0.55);
+  color: rgba(255, 253, 248, 0.7);
+  letter-spacing: 0.02em;
 }
 
 .footer-brand img {
