@@ -1296,6 +1296,16 @@ p {
   color: rgba(255, 253, 248, 0.5);
 }
 
+.footer-bottom a {
+  color: rgba(255, 253, 248, 0.75);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+  color: var(--orange-soft);
+}
+
 /* ——— Reveal on scroll ——— */
 .reveal {
   opacity: 0;
