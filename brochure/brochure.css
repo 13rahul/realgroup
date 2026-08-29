@@ -70,6 +70,19 @@ img {
   background: var(--orange-deep);
 }
 
+.print-bar__download {
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.print-bar__download:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 .page {
   width: 210mm;
   min-height: 297mm;
