@@ -17,7 +17,7 @@
   if (!document.querySelector('link[href*="brochure-modal.css"]')) {
     var link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = assetBase + "css/brochure-modal.css?v=1";
+    link.href = assetBase + "css/brochure-modal.css?v=3";
     document.head.appendChild(link);
   }
 
@@ -28,8 +28,11 @@
   modal.innerHTML =
     '<div class="brochure-modal__backdrop" data-brochure-close></div>' +
     '<div class="brochure-modal__panel" role="dialog" aria-modal="true" aria-label="Brochure download form">' +
+    '<div class="brochure-modal__accent" aria-hidden="true"></div>' +
     '<button type="button" class="brochure-modal__close" aria-label="Close">&times;</button>' +
-    '<iframe class="brochure-modal__frame" title="Brochure download form" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>' +
+    '<div class="brochure-modal__frame-wrap">' +
+    '<iframe class="brochure-modal__frame" title="Brochure download form" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" scrolling="no"></iframe>' +
+    "</div>" +
     "</div>";
   document.body.appendChild(modal);
 
@@ -83,6 +86,7 @@
   function openModal(pdfUrl) {
     pendingPdfUrl = pdfUrl;
     lastFocus = document.activeElement;
+    iframe.style.height = "";
     iframe.src = FORM_URL;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
@@ -135,7 +139,14 @@
     if (!modal.classList.contains("is-open") || !ULTRA_ORIGINS[e.origin]) {
       return;
     }
-    if (isSubmitMessage(e.data) && pendingPdfUrl) {
+    var data = e.data;
+    if (typeof data === "object" && data && data.height) {
+      var h = parseInt(data.height, 10);
+      if (h > 0 && h < 900) {
+        iframe.style.height = h + "px";
+      }
+    }
+    if (isSubmitMessage(data) && pendingPdfUrl) {
       window.location.href = pendingPdfUrl;
     }
   });
