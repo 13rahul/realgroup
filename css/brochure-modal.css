@@ -1,0 +1,103 @@
+/* Brochure download popup — form lives in embedded iframe */
+.brochure-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(0.75rem, env(safe-area-inset-top))
+    max(0.75rem, env(safe-area-inset-right))
+    max(0.75rem, env(safe-area-inset-bottom))
+    max(0.75rem, env(safe-area-inset-left));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.brochure-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.brochure-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 28, 18, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.brochure-modal__panel {
+  position: relative;
+  width: min(100%, 560px);
+  max-height: min(94dvh, 720px);
+  overflow: hidden;
+  background: var(--white, #fffdf8);
+  border-radius: 12px;
+  box-shadow: 0 24px 64px rgba(42, 28, 18, 0.28);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.25s var(--ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.brochure-modal.is-open .brochure-modal__panel {
+  transform: translateY(0) scale(1);
+}
+
+.brochure-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--brown, #3d2a1a);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(42, 28, 18, 0.12);
+  transition: background 0.2s ease;
+}
+
+.brochure-modal__close:hover {
+  background: #fff;
+}
+
+.brochure-modal__frame {
+  display: block;
+  width: 100%;
+  height: min(680px, 88dvh);
+  min-height: 420px;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+}
+
+@media (max-width: 520px) {
+  .brochure-modal {
+    padding: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .brochure-modal__panel {
+    width: 100%;
+    max-height: 96dvh;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .brochure-modal__frame {
+    height: min(620px, 82dvh);
+    min-height: 360px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .brochure-modal__close {
+    top: 0.4rem;
+    right: 0.4rem;
+  }
+}
