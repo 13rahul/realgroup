@@ -14,32 +14,85 @@
     ? script.getAttribute("src").replace(/js\/brochure-modal\.js(\?.*)?$/, "")
     : "";
 
+  if (!document.getElementById("brochure-modal-critical")) {
+    var critical = document.createElement("style");
+    critical.id = "brochure-modal-critical";
+    critical.textContent =
+      ".brochure-modal{display:none!important}.brochure-modal.is-open{display:flex!important}";
+    document.head.appendChild(critical);
+  }
+
   if (!document.querySelector('link[href*="brochure-modal.css"]')) {
     var link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = assetBase + "css/brochure-modal.css?v=3";
+    link.href = assetBase + "css/brochure-modal.css?v=4";
     document.head.appendChild(link);
   }
 
-  var modal = document.createElement("div");
-  modal.className = "brochure-modal";
-  modal.id = "brochure-modal";
-  modal.setAttribute("aria-hidden", "true");
-  modal.innerHTML =
-    '<div class="brochure-modal__backdrop" data-brochure-close></div>' +
-    '<div class="brochure-modal__panel" role="dialog" aria-modal="true" aria-label="Brochure download form">' +
-    '<div class="brochure-modal__accent" aria-hidden="true"></div>' +
-    '<button type="button" class="brochure-modal__close" aria-label="Close">&times;</button>' +
-    '<div class="brochure-modal__frame-wrap">' +
-    '<iframe class="brochure-modal__frame" title="Brochure download form" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" scrolling="no"></iframe>' +
-    "</div>" +
-    "</div>";
-  document.body.appendChild(modal);
-
-  var iframe = modal.querySelector(".brochure-modal__frame");
-  var closeBtn = modal.querySelector(".brochure-modal__close");
+  var modal = null;
+  var iframe = null;
+  var closeBtn = null;
   var pendingPdfUrl = "";
   var lastFocus = null;
+  var listenersBound = false;
+
+  function ensureModal() {
+    if (modal) {
+      return modal;
+    }
+
+    modal = document.createElement("div");
+    modal.className = "brochure-modal";
+    modal.id = "brochure-modal";
+    modal.setAttribute("aria-hidden", "true");
+    modal.hidden = true;
+    modal.innerHTML =
+      '<div class="brochure-modal__backdrop" data-brochure-close></div>' +
+      '<div class="brochure-modal__panel" role="dialog" aria-modal="true" aria-label="Brochure download form">' +
+      '<div class="brochure-modal__accent" aria-hidden="true"></div>' +
+      '<button type="button" class="brochure-modal__close" aria-label="Close">&times;</button>' +
+      '<div class="brochure-modal__frame-wrap">' +
+      '<iframe class="brochure-modal__frame" title="Brochure download form" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" scrolling="no"></iframe>' +
+      "</div>" +
+      "</div>";
+    document.body.appendChild(modal);
+
+    iframe = modal.querySelector(".brochure-modal__frame");
+    closeBtn = modal.querySelector(".brochure-modal__close");
+
+    closeBtn.addEventListener("click", closeModal);
+    modal
+      .querySelector("[data-brochure-close]")
+      .addEventListener("click", closeModal);
+
+    if (!listenersBound) {
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
+
+      window.addEventListener("message", function (e) {
+        if (!modal || !modal.classList.contains("is-open") || !ULTRA_ORIGINS[e.origin]) {
+          return;
+        }
+        var data = e.data;
+        if (typeof data === "object" && data && data.height) {
+          var h = parseInt(data.height, 10);
+          if (h > 0 && h < 900) {
+            iframe.style.height = h + "px";
+          }
+        }
+        if (isSubmitMessage(data) && pendingPdfUrl) {
+          window.location.href = pendingPdfUrl;
+        }
+      });
+
+      listenersBound = true;
+    }
+
+    return modal;
+  }
 
   function resolveUrl(path) {
     var anchor = document.createElement("a");
@@ -84,10 +137,12 @@
   }
 
   function openModal(pdfUrl) {
+    ensureModal();
     pendingPdfUrl = pdfUrl;
     lastFocus = document.activeElement;
     iframe.style.height = "";
     iframe.src = FORM_URL;
+    modal.hidden = false;
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -95,8 +150,12 @@
   }
 
   function closeModal() {
+    if (!modal) {
+      return;
+    }
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
+    modal.hidden = true;
     document.body.style.overflow = "";
     iframe.src = "about:blank";
     if (lastFocus && typeof lastFocus.focus === "function") {
@@ -123,31 +182,4 @@
     },
     true
   );
-
-  closeBtn.addEventListener("click", closeModal);
-  modal
-    .querySelector("[data-brochure-close]")
-    .addEventListener("click", closeModal);
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal.classList.contains("is-open")) {
-      closeModal();
-    }
-  });
-
-  window.addEventListener("message", function (e) {
-    if (!modal.classList.contains("is-open") || !ULTRA_ORIGINS[e.origin]) {
-      return;
-    }
-    var data = e.data;
-    if (typeof data === "object" && data && data.height) {
-      var h = parseInt(data.height, 10);
-      if (h > 0 && h < 900) {
-        iframe.style.height = h + "px";
-      }
-    }
-    if (isSubmitMessage(data) && pendingPdfUrl) {
-      window.location.href = pendingPdfUrl;
-    }
-  });
 })();

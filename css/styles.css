@@ -1468,11 +1468,12 @@ p {
 .footer-social {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.65rem;
   margin-bottom: 0.25rem;
 }
 
-.footer-social__link {
+.footer-col .footer-social__link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1483,20 +1484,23 @@ p {
   border: 1px solid rgba(232, 184, 74, 0.35);
   background: rgba(255, 253, 248, 0.06);
   color: rgba(255, 253, 248, 0.88);
+  line-height: 0;
+  flex-shrink: 0;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.footer-social__link:hover {
+.footer-col .footer-social__link:hover {
   color: var(--gold);
   background: rgba(242, 107, 26, 0.18);
   border-color: var(--gold);
   transform: translateY(-2px);
 }
 
-.footer-social__link svg {
+.footer-col .footer-social__link svg {
   display: block;
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
 }
 
 .footer-bottom {
