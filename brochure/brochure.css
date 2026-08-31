@@ -414,8 +414,9 @@ img {
   margin-bottom: 7mm;
 }
 
-.cert-banner--3 {
-  grid-template-columns: repeat(3, 1fr);
+.cert-banner--3,
+.cert-banner--4 {
+  grid-template-columns: 1fr 1fr;
 }
 
 .cert-item--halal {

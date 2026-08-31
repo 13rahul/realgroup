@@ -463,6 +463,89 @@ p {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
+/* ——— Exporter band ——— */
+.exporter-band {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.exporter {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.exporter__copy .eyebrow {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.exporter__copy h2 {
+  font-family: var(--font-title);
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.exporter__copy > p {
+  color: var(--brown-mid);
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  max-width: 36rem;
+}
+
+.exporter__markets {
+  font-family: var(--font-title);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 1.35rem !important;
+}
+
+.exporter__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.exporter__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.exporter__facts li {
+  background: var(--white);
+  border: 1px solid rgba(61, 42, 26, 0.08);
+  border-top: 3px solid var(--orange);
+  border-radius: 14px;
+  padding: 1.25rem 1.15rem 1.15rem;
+  box-shadow: 0 10px 28px var(--shadow);
+}
+
+.exporter__facts strong {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 0.4rem;
+}
+
+.exporter__facts span {
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--brown-mid);
+}
+
 /* ——— Sections ——— */
 .section {
   padding: 4.5rem 0;
@@ -1385,7 +1468,7 @@ p {
 .footer-certs__logos {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
 }
@@ -2327,6 +2410,11 @@ p {
     aspect-ratio: 16 / 11;
   }
 
+  .exporter {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
   .softness__visual {
     max-width: 420px;
     margin-inline: auto;
@@ -2449,7 +2537,8 @@ p {
 
 /* Placed last so it wins over the shared max-width: 900px grid collapse above. */
 @media (max-width: 620px) {
-  .why-row {
+  .why-row,
+  .exporter__facts {
     grid-template-columns: 1fr;
   }
 }
