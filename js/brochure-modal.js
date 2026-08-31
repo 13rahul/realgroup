@@ -25,16 +25,51 @@
   if (!document.querySelector('link[href*="brochure-modal.css"]')) {
     var link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = assetBase + "css/brochure-modal.css?v=4";
+    link.href = assetBase + "css/brochure-modal.css?v=5";
     document.head.appendChild(link);
   }
 
   var modal = null;
   var iframe = null;
   var closeBtn = null;
+  var floater = null;
   var pendingPdfUrl = "";
   var lastFocus = null;
   var listenersBound = false;
+
+  function getDefaultPdfPath() {
+    if (/\/brochure(\/|$)/.test(window.location.pathname)) {
+      return "Real-Chakki-Fresh-Atta-Export-Brochure.pdf";
+    }
+    return "brochure/Real-Chakki-Fresh-Atta-Export-Brochure.pdf";
+  }
+
+  function ensureFloater() {
+    if (floater || document.getElementById("brochure-floater")) {
+      floater = document.getElementById("brochure-floater");
+      return floater;
+    }
+
+    floater = document.createElement("a");
+    floater.id = "brochure-floater";
+    floater.className = "brochure-floater js-brochure-download";
+    floater.href = "#";
+    floater.setAttribute("data-brochure-pdf", getDefaultPdfPath());
+    floater.setAttribute("aria-label", "Download brochure");
+    floater.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4h14v-2H5v2z"/></svg>' +
+      "<span>Download brochure</span>";
+    document.body.appendChild(floater);
+    document.body.classList.add("brochure-floater-active");
+    return floater;
+  }
+
+  function setFloaterVisible(show) {
+    if (!floater) {
+      return;
+    }
+    floater.classList.toggle("is-hidden", !show);
+  }
 
   function ensureModal() {
     if (modal) {
@@ -146,6 +181,7 @@
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    setFloaterVisible(false);
     closeBtn.focus();
   }
 
@@ -158,6 +194,7 @@
     modal.hidden = true;
     document.body.style.overflow = "";
     iframe.src = "about:blank";
+    setFloaterVisible(true);
     if (lastFocus && typeof lastFocus.focus === "function") {
       lastFocus.focus();
     }
@@ -182,4 +219,6 @@
     },
     true
   );
+
+  ensureFloater();
 })();

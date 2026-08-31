@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Oswald:wght@500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="stylesheet" href="css/styles.css?v=9" />
   <link rel="icon" href="assets/favicon.png" type="image/png" />
 </head>
 <body>
@@ -47,25 +47,7 @@
     </header>
 
     <section class="section">
-      <div class="container contact-layout">
-        <form class="contact-form reveal" id="contact-form" novalidate>
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="10-digit mobile" />
-          </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
-          </div>
-          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
-          <button class="btn btn-primary" type="submit">Send enquiry</button>
-          <a class="btn btn-whatsapp" href="https://wa.me/917709535455?text=Hi%2C%20I%20have%20an%20enquiry%20about%20Real%20Chakki%20Fresh%20Atta" target="_blank" rel="noopener">Chat on WhatsApp</a>
-        </form>
-
+      <div class="container contact-page-grid">
         <div class="contact-details reveal">
           <h2>Visit &amp; reach us</h2>
           <dl>
@@ -84,6 +66,10 @@
             <dt>Certification</dt>
             <dd>ISO 9001:2015 Certified Company</dd>
           </dl>
+          <div class="contact-actions">
+            <a class="btn btn-whatsapp" href="https://wa.me/917709535455?text=Hi%2C%20I%20have%20an%20enquiry%20about%20Real%20Chakki%20Fresh%20Atta" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+            <a class="btn btn-primary" href="#book-meeting">Schedule a meeting</a>
+          </div>
           <div class="social-links" aria-label="Social media">
             <a href="https://facebook.com/realgroupindia" target="_blank" rel="noopener">Facebook</a>
             <a href="https://linkedin.com/company/realgroupindia" target="_blank" rel="noopener">LinkedIn</a>
@@ -92,7 +78,7 @@
         </div>
       </div>
 
-      <div class="container booking-block reveal">
+      <div class="container booking-block reveal" id="book-meeting">
         <div class="booking-block__head">
           <p class="eyebrow">Book a call</p>
           <h2>Schedule a meeting</h2>
@@ -175,6 +161,6 @@
   </footer>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script src="js/main.js"></script>
-  <script src="js/brochure-modal.js?v=3"></script>
+  <script src="js/brochure-modal.js?v=4"></script>
 </body>
 </html>
