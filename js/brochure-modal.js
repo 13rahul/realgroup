@@ -2,6 +2,7 @@
   "use strict";
 
   var PDF_NAME = "Real-Chakki-Fresh-Atta-Export-Brochure.pdf";
+  var PDF_CACHE = "v=8";
   var FORM_URL =
     "https://ultralooper.com/f/e9360fadb709510a53359692384a7c87?embed=1";
   var ULTRA_ORIGINS = {
@@ -39,9 +40,19 @@
 
   function getDefaultPdfPath() {
     if (/\/brochure(\/|$)/.test(window.location.pathname)) {
-      return "Real-Chakki-Fresh-Atta-Export-Brochure.pdf";
+      return PDF_NAME + "?" + PDF_CACHE;
     }
-    return "brochure/Real-Chakki-Fresh-Atta-Export-Brochure.pdf";
+    return "brochure/" + PDF_NAME + "?" + PDF_CACHE;
+  }
+
+  function withCacheBust(url) {
+    if (!url) {
+      return url;
+    }
+    if (/[?&]v=/.test(url)) {
+      return url;
+    }
+    return url + (url.indexOf("?") === -1 ? "?" : "&") + PDF_CACHE;
   }
 
   function ensureFloater() {
@@ -138,7 +149,7 @@
   function getPdfUrl(trigger) {
     var dataPdf = trigger.getAttribute("data-brochure-pdf");
     if (dataPdf) {
-      return resolveUrl(dataPdf);
+      return withCacheBust(resolveUrl(dataPdf));
     }
     var href = trigger.getAttribute("href") || "";
     if (
@@ -146,7 +157,7 @@
       href !== "#" &&
       href.indexOf("javascript:") !== 0
     ) {
-      return resolveUrl(href);
+      return withCacheBust(resolveUrl(href));
     }
     return "";
   }
