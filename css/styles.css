@@ -1283,6 +1283,49 @@ p {
   background: var(--beige-deep);
 }
 
+.booking-block {
+  margin-top: 2.5rem;
+}
+
+.booking-block__head {
+  margin-bottom: 1.25rem;
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.booking-block__head .eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.booking-block__head h2 {
+  font-family: var(--font-title);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  margin-bottom: 0.5rem;
+}
+
+.booking-block__head p {
+  color: var(--brown-mid);
+  margin: 0;
+}
+
+.booking-embed {
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.booking-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 680px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  border-radius: 12px;
+  background: #fff;
+}
+
 .map-embed iframe {
   width: 100%;
   height: 100%;
@@ -2315,6 +2358,10 @@ p {
 
   .map-embed {
     aspect-ratio: 4 / 3;
+  }
+
+  .booking-embed iframe {
+    min-height: 560px;
   }
 
   .section {
