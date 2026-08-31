@@ -689,6 +689,105 @@ img {
   line-height: 1.2;
 }
 
+.product-sheet {
+  display: grid;
+  grid-template-columns: 48mm 1fr;
+  gap: 5mm;
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(61, 42, 26, 0.1);
+  border-left: 3px solid var(--orange);
+  padding: 4mm 5mm;
+  margin-bottom: 4mm;
+}
+
+.product-sheet--tall {
+  margin-bottom: 6mm;
+  padding: 6mm 5mm;
+}
+
+.product-sheet img {
+  width: 100%;
+  height: 42mm;
+  object-fit: contain;
+  background: linear-gradient(180deg, #fff8ee, #f3e6d0);
+}
+
+.product-sheet--tall img {
+  height: 58mm;
+}
+
+.product-sheet__tag {
+  margin: 0 0 1mm !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--orange-deep) !important;
+}
+
+.product-sheet h3 {
+  margin: 0 0 2mm !important;
+  font-family: var(--display);
+  font-size: 1.15rem !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: var(--brown);
+}
+
+.product-sheet p {
+  margin: 0 0 2mm !important;
+  font-size: 0.82rem !important;
+  line-height: 1.45 !important;
+}
+
+.sheet-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5mm;
+  list-style: none;
+  margin: 1mm 0 0;
+  padding: 0;
+}
+
+.sheet-pills li {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brown);
+  background: var(--paper);
+  padding: 1.2mm 2.5mm;
+  border-bottom: 2px solid var(--orange);
+}
+
+.page-report .page-head {
+  margin-bottom: 4mm;
+}
+
+.page-report .page-head h2 {
+  font-size: 1.35rem;
+}
+
+.report-frame {
+  margin: 0 0 3mm;
+  background: #fff;
+  border: 1px solid rgba(61, 42, 26, 0.1);
+  padding: 3mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 205mm;
+  overflow: hidden;
+}
+
+.report-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top center;
+}
+
 .nutri-intro {
   margin: 0 0 5mm;
   font-size: 0.88rem;
@@ -711,8 +810,8 @@ img {
 
 .nutri-compact th,
 .nutri-compact td {
-  padding: 1.8mm 2.5mm;
-  font-size: 0.78rem;
+  padding: 1.35mm 2.2mm;
+  font-size: 0.74rem;
 }
 
 .benefits-strip {
@@ -788,6 +887,7 @@ img {
   .pack-row,
   .spec-bar,
   .product-grid,
+  .product-sheet,
   .nutri-grid,
   .benefits-strip {
     grid-template-columns: 1fr;
@@ -832,7 +932,7 @@ img {
     break-after: page;
   }
 
-  .page:last-child {
+  .page:last-of-type {
     page-break-after: auto;
     break-after: auto;
   }
