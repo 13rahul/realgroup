@@ -1,23 +1,31 @@
-/* Real Chakki Fresh Atta — brand styles */
+/* Real Chakki Fresh Atta — brand styles
+   Theme: #00adef + white · dark navy nav/footer */
 :root {
-  --orange: #f26b1a;
-  --orange-deep: #d4550a;
-  --orange-soft: #ff9a3c;
-  --beige: #f3e6d0;
-  --beige-deep: #e8d5b5;
-  --paper: #faf3e6;
-  --brown: #3d2a1a;
-  --brown-mid: #6b5344;
-  --gold: #e8b84a;
-  --gold-deep: #c9922e;
-  --green: #2f6b3a;
-  --white: #fffdf8;
-  --ink: #2a1c12;
-  --shadow: rgba(61, 42, 26, 0.12);
+  --brand: #00adef;
+  --brand-deep: #0090c9;
+  --brand-soft: #4dc4f5;
+  --brand-mist: rgba(0, 173, 239, 0.12);
+  --navy: #0a1f33;
+  --navy-deep: #061525;
+  --navy-mid: #14304a;
+  --orange: var(--brand);
+  --orange-deep: var(--brand-deep);
+  --orange-soft: var(--brand-soft);
+  --beige: #e8f6fc;
+  --beige-deep: #d2eef9;
+  --paper: #f5fbfd;
+  --brown: var(--navy);
+  --brown-mid: #4a6478;
+  --gold: #7dd3f7;
+  --gold-deep: var(--brand-deep);
+  --green: #1a8f6e;
+  --white: #ffffff;
+  --ink: #0a1f33;
+  --shadow: rgba(10, 31, 51, 0.12);
   --radius: 4px;
   --font-display: "Great Vibes", cursive;
-  --font-body: "Outfit", system-ui, sans-serif;
-  --font-title: "Oswald", "Outfit", sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --font-title: "Sora", "Source Sans 3", sans-serif;
   --max: 1120px;
   --header-h: 72px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -39,12 +47,13 @@ body {
   font-weight: 400;
   color: var(--ink);
   background:
-    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(242, 107, 26, 0.08), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(232, 184, 74, 0.12), transparent 45%),
-    linear-gradient(180deg, var(--paper) 0%, var(--beige) 100%);
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(0, 173, 239, 0.1), transparent 50%),
+    radial-gradient(ellipse 55% 40% at 95% 5%, rgba(10, 31, 51, 0.05), transparent 45%),
+    linear-gradient(180deg, #ffffff 0%, var(--paper) 55%, var(--beige) 100%);
   background-attachment: fixed;
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100vh;
+  letter-spacing: 0.01em;
 }
 
 img {
@@ -66,8 +75,11 @@ ul {
 
 h1, h2, h3, h4 {
   margin: 0;
-  line-height: 1.15;
-  color: var(--brown);
+  line-height: 1.2;
+  color: var(--navy);
+  font-family: var(--font-title);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 p {
@@ -87,9 +99,10 @@ p {
   height: var(--header-h);
   display: flex;
   align-items: center;
-  background: rgba(250, 243, 230, 0.92);
+  background: var(--navy);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(61, 42, 26, 0.08);
+  border-bottom: 1px solid rgba(0, 173, 239, 0.2);
+  box-shadow: 0 4px 24px rgba(6, 21, 37, 0.25);
 }
 
 .header-inner {
@@ -122,25 +135,26 @@ p {
 
 .brand-text .script {
   font-family: var(--font-display);
-  font-size: 1.65rem;
-  color: var(--orange);
+  font-size: 1.75rem;
+  color: var(--brand);
   line-height: 1;
 }
 
 .brand-text .sub {
-  font-size: 0.65rem;
+  font-family: var(--font-title);
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brown-mid);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .nav-toggle {
   display: none;
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(61, 42, 26, 0.15);
-  background: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: var(--radius);
   cursor: pointer;
   align-items: center;
@@ -154,7 +168,7 @@ p {
   display: block;
   width: 20px;
   height: 2px;
-  background: var(--brown);
+  background: #fff;
   transition: transform 0.25s var(--ease), opacity 0.2s;
 }
 
@@ -177,9 +191,11 @@ p {
 }
 
 .site-nav a {
-  font-size: 0.9rem;
+  font-family: var(--font-title);
+  font-size: 0.84rem;
   font-weight: 500;
-  color: var(--brown-mid);
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.86);
   padding: 0.35rem 0;
   position: relative;
   transition: color 0.2s;
@@ -192,7 +208,7 @@ p {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: var(--orange);
+  background: var(--brand);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s var(--ease);
@@ -200,7 +216,7 @@ p {
 
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
-  color: var(--brown);
+  color: #fff;
 }
 
 .site-nav a:hover::after,
@@ -212,7 +228,7 @@ p {
   display: inline-flex !important;
   align-items: center;
   padding: 0.55rem 1.1rem !important;
-  background: var(--orange);
+  background: var(--brand);
   color: var(--white) !important;
   border-radius: var(--radius);
   font-weight: 600 !important;
@@ -334,7 +350,7 @@ p {
 .hero-eyebrow {
   font-family: var(--font-display);
   font-size: 1.75rem;
-  color: var(--gold);
+  color: var(--brand-soft);
   margin-bottom: 0.35rem;
   opacity: 0;
   animation: rise 0.9s var(--ease) 0.15s forwards;
@@ -725,22 +741,22 @@ p {
   padding: 3.5rem 0 2.5rem;
   text-align: center;
   background:
-    linear-gradient(180deg, rgba(242, 107, 26, 0.12), transparent),
-    radial-gradient(ellipse at 50% 0%, rgba(232, 184, 74, 0.2), transparent 60%);
-  border-bottom: 1px solid rgba(61, 42, 26, 0.08);
+    linear-gradient(180deg, rgba(0, 173, 239, 0.12), transparent),
+    radial-gradient(ellipse at 50% 0%, rgba(10, 31, 51, 0.06), transparent 60%);
+  border-bottom: 1px solid rgba(10, 31, 51, 0.08);
 }
 
 .page-hero .eyebrow {
   font-family: var(--font-display);
   font-size: 1.6rem;
-  color: var(--orange);
+  color: var(--brand);
 }
 
 .page-hero h1 {
   font-family: var(--font-title);
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-transform: none;
   margin: 0.35rem 0 0.75rem;
 }
 
@@ -1433,10 +1449,11 @@ p {
 
 /* ——— Footer ——— */
 .site-footer {
-  background: linear-gradient(180deg, #2a1c12, #1a110b);
-  color: rgba(255, 253, 248, 0.78);
+  background: linear-gradient(180deg, var(--navy-mid), var(--navy-deep));
+  color: rgba(255, 255, 255, 0.82);
   padding: 3rem 0 1.5rem;
   margin-top: 2rem;
+  border-top: 3px solid var(--brand);
 }
 
 .footer-grid {
@@ -1452,8 +1469,8 @@ p {
 
 .footer-motto {
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  color: var(--gold);
+  font-size: 1.4rem;
+  color: var(--brand-soft);
   margin: 0.35rem 0 0.85rem !important;
 }
 
@@ -1548,7 +1565,7 @@ p {
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--brand-soft);
   margin-bottom: 0.85rem;
 }
 
@@ -1642,21 +1659,22 @@ p {
   width: 100%;
   background: transparent;
   border-bottom-color: transparent;
-  transition: background 0.3s var(--ease), border-color 0.3s, backdrop-filter 0.3s;
+  box-shadow: none;
+  transition: background 0.3s var(--ease), border-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
 }
 
 .site-header--home .brand-text .script {
-  color: var(--gold);
+  color: var(--brand-soft);
 }
 
 .site-header--home .brand-text .sub,
 .site-header--home .site-nav a {
-  color: rgba(255, 253, 248, 0.88);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .site-header--home .nav-toggle {
-  background: rgba(255, 253, 248, 0.15);
-  border-color: rgba(255, 253, 248, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
 .site-header--home .nav-toggle span {
@@ -1664,27 +1682,28 @@ p {
 }
 
 .site-header--home.is-scrolled {
-  background: rgba(250, 243, 230, 0.94);
+  background: var(--navy);
   backdrop-filter: blur(10px);
-  border-bottom-color: rgba(61, 42, 26, 0.08);
+  border-bottom-color: rgba(0, 173, 239, 0.25);
+  box-shadow: 0 4px 24px rgba(6, 21, 37, 0.3);
 }
 
 .site-header--home.is-scrolled .brand-text .script {
-  color: var(--orange);
+  color: var(--brand);
 }
 
 .site-header--home.is-scrolled .brand-text .sub,
 .site-header--home.is-scrolled .site-nav a {
-  color: var(--brown-mid);
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .site-header--home.is-scrolled .nav-toggle {
-  background: var(--white);
-  border-color: rgba(61, 42, 26, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .site-header--home.is-scrolled .nav-toggle span {
-  background: var(--brown);
+  background: #fff;
 }
 
 .hero {
@@ -2440,7 +2459,8 @@ p {
     top: var(--header-h);
     left: 0;
     right: 0;
-    background: var(--paper);
+    background: var(--navy-deep);
+    border-bottom: 1px solid rgba(0, 173, 239, 0.2);
     border-bottom: 1px solid rgba(61, 42, 26, 0.1);
     padding: 1rem 1.25rem 1.25rem;
     transform: translateY(-120%);
@@ -2472,7 +2492,7 @@ p {
   }
 
   .site-header--home .site-nav a {
-    color: var(--brown-mid);
+    color: rgba(255, 255, 255, 0.88);
   }
 
   .hero {
