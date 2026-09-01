@@ -26,7 +26,7 @@
   if (!document.querySelector('link[href*="brochure-modal.css"]')) {
     var link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = assetBase + "css/brochure-modal.css?v=6";
+    link.href = assetBase + "css/brochure-modal.css?v=7";
     document.head.appendChild(link);
   }
 
