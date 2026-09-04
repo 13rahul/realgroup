@@ -1,8 +1,10 @@
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /sitemap.php
+Allow: /robots.txt
 
 Disallow: /invoice/
-Disallow: /brochure/node_modules/
-Disallow: /*.mjs$
 
 Sitemap: https://realgroupindia.com/sitemap.xml
+Sitemap: https://realgroupindia.com/sitemap.php

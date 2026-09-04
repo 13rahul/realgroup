@@ -1,0 +1,31 @@
+# Real Group India — Apache helpers for SEO files
+Options -Indexes
+
+# Serve sitemaps as XML (fixes GSC "could not be read" / wrong content-type)
+<IfModule mod_mime.c>
+  AddType application/xml .xml
+  AddCharset UTF-8 .xml
+</IfModule>
+
+<Files "sitemap.xml">
+  <IfModule mod_headers.c>
+    Header set Content-Type "application/xml; charset=UTF-8"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Cache-Control "public, max-age=3600"
+  </IfModule>
+</Files>
+
+<Files "robots.txt">
+  <IfModule mod_headers.c>
+    Header set Content-Type "text/plain; charset=UTF-8"
+  </IfModule>
+</Files>
+
+# Prefer non-www HTTPS (match canonical URLs in sitemap)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} ^www\.realgroupindia\.com$ [NC]
+  RewriteRule ^ https://realgroupindia.com%{REQUEST_URI} [L,R=301]
+</IfModule>
