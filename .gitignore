@@ -19,3 +19,6 @@ credentials.json
 *.log
 node_modules/
 .cursor/
+
+# Private billing — do not deploy with the client site
+invoice/

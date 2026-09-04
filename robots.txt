@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /invoice/
+Disallow: /brochure/node_modules/
+Disallow: /*.mjs$
+
+Sitemap: https://realgroupindia.com/sitemap.xml
