@@ -1,31 +1,24 @@
 /* Real Chakki Fresh Atta — brand styles
-   Theme: #00adef + white · dark navy nav/footer */
+   Palette from Real logo: saffron red + wheat gold */
 :root {
-  --brand: #00adef;
-  --brand-deep: #0090c9;
-  --brand-soft: #4dc4f5;
-  --brand-mist: rgba(0, 173, 239, 0.12);
-  --navy: #0a1f33;
-  --navy-deep: #061525;
-  --navy-mid: #14304a;
-  --orange: var(--brand);
-  --orange-deep: var(--brand-deep);
-  --orange-soft: var(--brand-soft);
-  --beige: #e8f6fc;
-  --beige-deep: #d2eef9;
-  --paper: #f5fbfd;
-  --brown: var(--navy);
-  --brown-mid: #4a6478;
-  --gold: #7dd3f7;
-  --gold-deep: var(--brand-deep);
-  --green: #1a8f6e;
-  --white: #ffffff;
-  --ink: #0a1f33;
-  --shadow: rgba(10, 31, 51, 0.12);
+  --orange: #e83030;
+  --orange-deep: #c41e24;
+  --orange-soft: #f05a5a;
+  --beige: #faf3e6;
+  --beige-deep: #f0e0c0;
+  --paper: #fff8ee;
+  --brown: #3d2a1a;
+  --brown-mid: #6b5344;
+  --gold: #e8c038;
+  --gold-deep: #d4a017;
+  --green: #2f6b3a;
+  --white: #fffdf8;
+  --ink: #2a1c12;
+  --shadow: rgba(61, 42, 26, 0.12);
   --radius: 4px;
   --font-display: "Great Vibes", cursive;
-  --font-body: "Source Sans 3", system-ui, sans-serif;
-  --font-title: "Sora", "Source Sans 3", sans-serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-title: "Oswald", "Outfit", sans-serif;
   --max: 1120px;
   --header-h: 72px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -47,13 +40,12 @@ body {
   font-weight: 400;
   color: var(--ink);
   background:
-    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(0, 173, 239, 0.1), transparent 50%),
-    radial-gradient(ellipse 55% 40% at 95% 5%, rgba(10, 31, 51, 0.05), transparent 45%),
-    linear-gradient(180deg, #ffffff 0%, var(--paper) 55%, var(--beige) 100%);
+    radial-gradient(ellipse 80% 50% at 10% 0%, rgba(232, 48, 48, 0.08), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(232, 192, 56, 0.14), transparent 45%),
+    linear-gradient(180deg, var(--paper) 0%, var(--beige) 100%);
   background-attachment: fixed;
-  line-height: 1.65;
+  line-height: 1.6;
   min-height: 100vh;
-  letter-spacing: 0.01em;
 }
 
 img {
@@ -75,11 +67,8 @@ ul {
 
 h1, h2, h3, h4 {
   margin: 0;
-  line-height: 1.2;
-  color: var(--navy);
-  font-family: var(--font-title);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--brown);
 }
 
 p {
@@ -99,10 +88,9 @@ p {
   height: var(--header-h);
   display: flex;
   align-items: center;
-  background: var(--navy);
+  background: rgba(250, 243, 230, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 173, 239, 0.2);
-  box-shadow: 0 4px 24px rgba(6, 21, 37, 0.25);
+  border-bottom: 1px solid rgba(61, 42, 26, 0.08);
 }
 
 .header-inner {
@@ -135,26 +123,25 @@ p {
 
 .brand-text .script {
   font-family: var(--font-display);
-  font-size: 1.75rem;
-  color: var(--brand);
+  font-size: 1.65rem;
+  color: var(--orange);
   line-height: 1;
 }
 
 .brand-text .sub {
-  font-family: var(--font-title);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--brown-mid);
 }
 
 .nav-toggle {
   display: none;
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(61, 42, 26, 0.15);
+  background: var(--white);
   border-radius: var(--radius);
   cursor: pointer;
   align-items: center;
@@ -168,7 +155,7 @@ p {
   display: block;
   width: 20px;
   height: 2px;
-  background: #fff;
+  background: var(--brown);
   transition: transform 0.25s var(--ease), opacity 0.2s;
 }
 
@@ -191,11 +178,9 @@ p {
 }
 
 .site-nav a {
-  font-family: var(--font-title);
-  font-size: 0.84rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--brown-mid);
   padding: 0.35rem 0;
   position: relative;
   transition: color 0.2s;
@@ -208,7 +193,7 @@ p {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: var(--brand);
+  background: var(--orange);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s var(--ease);
@@ -216,7 +201,7 @@ p {
 
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
-  color: #fff;
+  color: var(--brown);
 }
 
 .site-nav a:hover::after,
@@ -228,7 +213,7 @@ p {
   display: inline-flex !important;
   align-items: center;
   padding: 0.55rem 1.1rem !important;
-  background: #00adef;
+  background: var(--orange);
   color: var(--white) !important;
   border-radius: var(--radius);
   font-weight: 600 !important;
@@ -266,14 +251,14 @@ p {
 }
 
 .btn-primary {
-  background: #00adef;
+  background: var(--orange);
   color: var(--white);
-  border-color: #00adef;
+  border-color: var(--orange);
 }
 
 .btn-primary:hover {
-  background: #0090c9;
-  border-color: #0090c9;
+  background: var(--orange-deep);
+  border-color: var(--orange-deep);
 }
 
 .btn-ghost {
@@ -317,7 +302,7 @@ p {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--navy-deep);
+  background: #2a1c12;
 }
 
 .hero-media {
@@ -335,8 +320,8 @@ p {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(105deg, rgba(10, 31, 51, 0.82) 0%, rgba(10, 31, 51, 0.48) 42%, rgba(0, 173, 239, 0.08) 68%, transparent 100%),
-    linear-gradient(to top, rgba(6, 21, 37, 0.55), transparent 35%);
+    linear-gradient(105deg, rgba(42, 28, 18, 0.78) 0%, rgba(42, 28, 18, 0.42) 42%, rgba(42, 28, 18, 0.12) 68%, transparent 100%),
+    linear-gradient(to top, rgba(42, 28, 18, 0.45), transparent 35%);
   pointer-events: none;
 }
 
@@ -350,7 +335,7 @@ p {
 .hero-eyebrow {
   font-family: var(--font-display);
   font-size: 1.75rem;
-  color: var(--brand-soft);
+  color: var(--gold);
   margin-bottom: 0.35rem;
   opacity: 0;
   animation: rise 0.9s var(--ease) 0.15s forwards;
@@ -400,9 +385,9 @@ p {
 
 .hero-chips li {
   padding: 0.34rem 0.85rem;
-  border: 1px solid rgba(0, 173, 239, 0.55);
+  border: 1px solid rgba(232, 192, 56, 0.55);
   border-radius: 999px;
-  background: rgba(10, 31, 51, 0.45);
+  background: rgba(42, 28, 18, 0.35);
   backdrop-filter: blur(4px);
   color: var(--white);
   font-family: var(--font-title);
@@ -447,7 +432,7 @@ p {
 
 /* ——— Trust strip ——— */
 .trust-strip {
-  background: linear-gradient(90deg, #0090c9, #00adef, #4dc4f5);
+  background: linear-gradient(90deg, var(--orange-deep), var(--orange), var(--orange-soft));
   color: var(--white);
   padding: 1rem 0;
 }
@@ -741,22 +726,22 @@ p {
   padding: 3.5rem 0 2.5rem;
   text-align: center;
   background:
-    linear-gradient(180deg, rgba(0, 173, 239, 0.12), transparent),
-    radial-gradient(ellipse at 50% 0%, rgba(10, 31, 51, 0.06), transparent 60%);
-  border-bottom: 1px solid rgba(10, 31, 51, 0.08);
+    linear-gradient(180deg, rgba(232, 48, 48, 0.12), transparent),
+    radial-gradient(ellipse at 50% 0%, rgba(232, 192, 56, 0.2), transparent 60%);
+  border-bottom: 1px solid rgba(61, 42, 26, 0.08);
 }
 
 .page-hero .eyebrow {
   font-family: var(--font-display);
   font-size: 1.6rem;
-  color: var(--brand);
+  color: var(--orange);
 }
 
 .page-hero h1 {
   font-family: var(--font-title);
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  letter-spacing: -0.02em;
-  text-transform: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   margin: 0.35rem 0 0.75rem;
 }
 
@@ -844,8 +829,8 @@ p {
   text-align: center;
   padding: 2.5rem 1.5rem;
   background:
-    linear-gradient(135deg, rgba(0, 173, 239, 0.1), rgba(0, 173, 239, 0.15));
-  border: 1px solid rgba(0, 173, 239, 0.2);
+    linear-gradient(135deg, rgba(232, 48, 48, 0.1), rgba(232, 192, 56, 0.15));
+  border: 1px solid rgba(232, 48, 48, 0.2);
   border-radius: 8px;
 }
 
@@ -1026,7 +1011,7 @@ p {
   font-size: clamp(1.5rem, 3vw, 2.1rem);
   color: var(--brown);
   line-height: 1.35;
-  background: linear-gradient(90deg, transparent, rgba(0, 173, 239, 0.08), transparent);
+  background: linear-gradient(90deg, transparent, rgba(232, 48, 48, 0.08), transparent);
 }
 
 .pull-quote cite {
@@ -1449,11 +1434,10 @@ p {
 
 /* ——— Footer ——— */
 .site-footer {
-  background: linear-gradient(180deg, var(--navy-mid), var(--navy-deep));
-  color: rgba(255, 255, 255, 0.82);
+  background: linear-gradient(180deg, #2a1c12, #1a110b);
+  color: rgba(255, 253, 248, 0.78);
   padding: 3rem 0 1.5rem;
   margin-top: 2rem;
-  border-top: 3px solid var(--brand);
 }
 
 .footer-grid {
@@ -1469,8 +1453,8 @@ p {
 
 .footer-motto {
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  color: var(--brand-soft);
+  font-size: 1.35rem;
+  color: var(--gold);
   margin: 0.35rem 0 0.85rem !important;
 }
 
@@ -1565,7 +1549,7 @@ p {
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--brand-soft);
+  color: var(--gold);
   margin-bottom: 0.85rem;
 }
 
@@ -1597,7 +1581,7 @@ p {
   height: 2.5rem;
   padding: 0;
   border-radius: 999px;
-  border: 1px solid rgba(0, 173, 239, 0.35);
+  border: 1px solid rgba(232, 192, 56, 0.35);
   background: rgba(255, 253, 248, 0.06);
   color: rgba(255, 253, 248, 0.88);
   line-height: 0;
@@ -1607,7 +1591,7 @@ p {
 
 .footer-col .footer-social__link:hover {
   color: var(--gold);
-  background: rgba(0, 173, 239, 0.18);
+  background: rgba(232, 48, 48, 0.18);
   border-color: var(--gold);
   transform: translateY(-2px);
 }
@@ -1659,22 +1643,21 @@ p {
   width: 100%;
   background: transparent;
   border-bottom-color: transparent;
-  box-shadow: none;
-  transition: background 0.3s var(--ease), border-color 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+  transition: background 0.3s var(--ease), border-color 0.3s, backdrop-filter 0.3s;
 }
 
 .site-header--home .brand-text .script {
-  color: #00adef;
+  color: var(--gold);
 }
 
 .site-header--home .brand-text .sub,
 .site-header--home .site-nav a {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 253, 248, 0.88);
 }
 
 .site-header--home .nav-toggle {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 253, 248, 0.15);
+  border-color: rgba(255, 253, 248, 0.35);
 }
 
 .site-header--home .nav-toggle span {
@@ -1682,28 +1665,27 @@ p {
 }
 
 .site-header--home.is-scrolled {
-  background: var(--navy);
+  background: rgba(250, 243, 230, 0.94);
   backdrop-filter: blur(10px);
-  border-bottom-color: rgba(0, 173, 239, 0.25);
-  box-shadow: 0 4px 24px rgba(6, 21, 37, 0.3);
+  border-bottom-color: rgba(61, 42, 26, 0.08);
 }
 
 .site-header--home.is-scrolled .brand-text .script {
-  color: var(--brand);
+  color: var(--orange);
 }
 
 .site-header--home.is-scrolled .brand-text .sub,
 .site-header--home.is-scrolled .site-nav a {
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--brown-mid);
 }
 
 .site-header--home.is-scrolled .nav-toggle {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: var(--white);
+  border-color: rgba(61, 42, 26, 0.15);
 }
 
 .site-header--home.is-scrolled .nav-toggle span {
-  background: #fff;
+  background: var(--brown);
 }
 
 .hero {
@@ -1780,7 +1762,7 @@ p {
 .home-product:focus-visible {
   transform: translateY(-6px);
   box-shadow: 0 22px 46px rgba(61, 42, 26, 0.2);
-  border-color: rgba(0, 173, 239, 0.7);
+  border-color: rgba(232, 192, 56, 0.7);
 }
 
 .home-product__media {
@@ -1893,7 +1875,7 @@ p {
 
 .home-product--cta {
   background: linear-gradient(155deg, var(--brown) 0%, #4d3623 100%);
-  border-color: rgba(0, 173, 239, 0.4);
+  border-color: rgba(232, 192, 56, 0.4);
 }
 
 .home-product__cta-inner {
@@ -1966,7 +1948,7 @@ p {
 .proof-card:focus-visible {
   transform: translateY(-5px);
   box-shadow: 0 20px 42px rgba(61, 42, 26, 0.18);
-  border-color: rgba(0, 173, 239, 0.7);
+  border-color: rgba(232, 192, 56, 0.7);
 }
 
 .proof-card__doc {
@@ -2237,7 +2219,7 @@ p {
   font-size: 2rem;
   line-height: 1;
   letter-spacing: 0.08em;
-  color: rgba(0, 173, 239, 0.25);
+  color: rgba(232, 48, 48, 0.25);
   margin-bottom: 0.55rem;
 }
 
@@ -2363,7 +2345,7 @@ p {
 
 .cta-band {
   background:
-    linear-gradient(120deg, rgba(10, 31, 51, 0.92), rgba(0, 173, 239, 0.82)),
+    linear-gradient(120deg, rgba(42, 28, 18, 0.88), rgba(212, 85, 10, 0.75)),
     url("../assets/product-shot.png") center / cover;
   color: var(--white);
   padding: 4rem 0;
@@ -2459,8 +2441,7 @@ p {
     top: var(--header-h);
     left: 0;
     right: 0;
-    background: var(--navy-deep);
-    border-bottom: 1px solid rgba(0, 173, 239, 0.2);
+    background: var(--paper);
     border-bottom: 1px solid rgba(61, 42, 26, 0.1);
     padding: 1rem 1.25rem 1.25rem;
     transform: translateY(-120%);
@@ -2492,7 +2473,7 @@ p {
   }
 
   .site-header--home .site-nav a {
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--brown-mid);
   }
 
   .hero {
