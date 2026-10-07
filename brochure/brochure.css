@@ -1,8 +1,9 @@
 /* Real Chakki Fresh Atta — A4 Export Brochure (print to PDF) */
 :root {
-  --orange: #e83030;
-  --orange-deep: #c41e24;
-  --gold: #e8c038;
+  --orange: #d51a1c;
+  --orange-deep: #b01416;
+  --gold: #f4d14b;
+  --gold-deep: #d4b028;
   --brown: #3d2a1a;
   --brown-mid: #6b5344;
   --paper: #faf3e6;
@@ -140,7 +141,7 @@ img {
 .cover-badge {
   margin: 0;
   padding: 0.4rem 0.75rem;
-  border: 1px solid rgba(232, 184, 74, 0.55);
+  border: 1px solid rgba(244, 209, 75, 0.55);
   color: var(--gold);
   font-size: 0.72rem;
   letter-spacing: 0.14em;
@@ -505,7 +506,7 @@ img {
 }
 
 .callout {
-  background: linear-gradient(135deg, rgba(242, 107, 26, 0.12), rgba(232, 184, 74, 0.18));
+  background: linear-gradient(135deg, rgba(242, 107, 26, 0.12), rgba(244, 209, 75, 0.18));
   border-left: 3px solid var(--orange);
   padding: 4mm;
 }
